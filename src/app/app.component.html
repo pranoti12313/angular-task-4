@@ -1,0 +1,23 @@
+<form (submit)="onSubmit(myForm)" #myForm="ngForm" class="  form-control-sm">
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-sm-4">
+        <label for="box-1" class="text-uppercase">Box-1</label>
+        <input type="text" class="form-control" [(ngModel)]="boxOne"  ngModel #boxOneVar="ngModel" name="boxOne" (focusout)=" onfocusoutBoxOne()" id="box-1" required maxlength="100" minlength="0">
+        <div class="text-danger mt-1  font-weight-light"  *ngIf="boxOne>100">*value should not more than 100</div>
+      </div>   
+      <div class="col-sm-4">
+        <label for="box-2" class="text-uppercase">Box-2</label>
+        <input type="text" class="form-control"  [(ngModel)]="boxTwo" ngModel   #boxTwoVar="ngModel" name="boxTwo" (focusout)=" onfocusoutBoxTwo()" id="box-2" maxlength="100" minlength="0">
+        <div class="text-danger mt-1  font-weight-light"   *ngIf="boxTwo>100 ">*value should not more than 100</div>
+
+      </div>
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-inline btn-sm btn-success border border-dark" (click)="createChart()">create chart</button>
+      </div>
+      <div class="card flex justify-content-center mt-5 ml-5">
+        <p-chart type="pie" [data]="data" [options]="options"></p-chart>
+    </div>
+    </div>
+  </div>
+</form>
